@@ -18,6 +18,7 @@ h1 {
     color: #df2f17;
     margin-bottom: 20px;
     text-align: center; 
+    font-size: 45px;
 
 }
 
@@ -43,7 +44,7 @@ select {
 
 /* Style the Convert button */
 button {
-    background-color: #009688;
+    background-color: #562af5;
     color: #fff;
     cursor: pointer;
 }
@@ -63,4 +64,16 @@ h2 {
     color: #009688;
     margin-top: 20px;
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 45px;
+}
+
+.Image {
+    display: grid;
+    place-items: center;
+}
+
+.result {
+    text-align: center;
+    font-size: 25px;
 }
