@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <script>
+        // Exchange rates (as of a specific date, for example)
+        const usdToEurRate = 0.85;
+        const usdToGbpRate = 0.75;
+        const usdToJpyRate = 110.0;
+        const usdToInrRate = 83.0;
+
+        // Function to handle currency conversion
+        function convertCurrency() {
+            // Get user input
+            const amount = parseFloat(document.getElementById('amount').value);
+            const sourceCurrency = document.getElementById('sourceCurrency').value.toUpperCase();
+
+            // Convert the amount to USD
+            const amountInUSD = convertToUSD(amount, sourceCurrency, usdToEurRate, usdToGbpRate, usdToJpyRate, usdToInrRate);
+
+            // Display the converted amounts
+            document.getElementById('result').innerHTML = 
+                `${amount} ${sourceCurrency} is equal to:<br>` +
+                `${convertFromUSD(amountInUSD, 'EUR', usdToEurRate)} EUR<br>` +
+                `${convertFromUSD(amountInUSD, 'GBP', usdToGbpRate)} GBP<br>` +
+                `${convertFromUSD(amountInUSD, 'JPY', usdToJpyRate)} JPY<br>` +
+                `${convertFromUSD(amountInUSD, 'INR', usdToInrRate)} INR`;
+        }
+
+        // Function to convert the amount to USD
+        function convertToUSD(amount, sourceCurrency, usdToEurRate, usdToGbpRate, usdToJpyRate, usdToInrRate) {
+            switch (sourceCurrency) {
+                case 'USD':
+                    return amount;
+                case 'EUR':
+                    return amount / usdToEurRate;
+                case 'GBP':
+                    return amount / usdToGbpRate;
+                case 'JPY':
+                    return amount / usdToJpyRate;
+                case 'INR':
+                    return amount / usdToInrRate;
+                default:
+                    throw new Error('Invalid source currency');
+            }
+        }
+
+        // Function to convert the amount from USD to the destination currency
+        function convertFromUSD(amountInUSD, destCurrency, usdToDestRate) {
+            switch (destCurrency) {
+                case 'EUR':
+                case 'GBP':
+                case 'JPY':
+                case 'INR':
+                    return (amountInUSD * usdToDestRate).toFixed(2);
+                default:
+                    throw new Error('Invalid destination currency');
+            }
+        }
+    </script>
+
+    <h1>Currency Converter</h1>
+
+    <label for="amount">Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount" required>
+    
+    <label for="sourceCurrency">Select Source Currency:</label>
+    <select id="sourceCurrency" required>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="INR">INR</option>
+    </select>
+
+    <h2>Converted Currency</h2>
+    
+    <button type="button" onclick="convertCurrency()">Convert</button>
+    <h2>Converted Currencies:</h2>
+
+    <div id="result"></div>
+    <img src="Image.jpg" alt="Image">
+</body>
+</html>

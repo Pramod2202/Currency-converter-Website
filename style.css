@@ -1,0 +1,66 @@
+/* Reset some default browser styles */
+body, h1, h2, label, input, select, button, div {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a basic styling to the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Style the header */
+h1 {
+    color: #df2f17;
+    margin-bottom: 20px;
+    text-align: center; 
+
+}
+
+/* Style the form elements */
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select, button {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('arrow.png') no-repeat right center; /* Add your own arrow icon */
+}
+
+/* Style the Convert button */
+button {
+    background-color: #009688;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00796b;
+}
+
+/* Style the result display */
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Style the additional headers */
+h2 {
+    color: #009688;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
